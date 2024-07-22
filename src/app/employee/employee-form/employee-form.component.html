@@ -1,0 +1,96 @@
+<h1 class="title">Employee Info</h1>
+
+<div class="d-flex flex-column my-5">
+   <form [formGroup]="formGroup">
+    <div class="d-flex flex-column my-3">
+        <p class="color-gray">Username</p>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter username"
+        formControlName="username">
+    </div>
+    <div class="d-flex flex-row my-3">
+        <div class="d-flex flex-column w-100">
+            <p class="color-gray">First Name</p>
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Enter firstname"
+            formControlName="firstName">
+        </div>
+        <div class="d-flex flex-column w-100">
+            <p class="color-gray">Last Name</p>
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Enter last name"
+            formControlName="lastName">
+        </div>
+    </div>
+    <div class="d-flex flex-column w-100">
+        <p class="color-gray">Email</p>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter email"
+        formControlName="email">
+    </div>
+
+
+    <div class="d-flex justify-start">
+        <div class="d-flex flex-column my-3">
+            <p class="color-gray">Date of Birth</p>
+            <p-calendar 
+                [maxDate]="maxDate" 
+                formControlName="birthDate"  
+                [showIcon]="true" 
+                dateFormat="dd MM yy"
+                />
+        </div>
+        <div class="d-flex flex-column m-3">
+            <p class="color-gray">Group</p>
+            <p-dropdown  
+                [filter]="true"
+                filterBy="code"
+                [showClear]="true"
+                [options]="lovGroup" 
+                formControlName="groupObj" 
+                optionLabel="name" 
+                placeholder="Select a Group" />
+        </div>
+
+        <div class="d-flex flex-column my-3 w-100">
+            <p class="color-gray">Basic Salary</p>
+            <input 
+            type="number" 
+            class="form-control" 
+            placeholder="Enter basic salary"
+            formControlName="basicSalary">
+        </div>
+    </div>
+    <div class="d-flex flex-column my-3 w-100">
+        <p class="color-gray">Status</p>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter status"
+        formControlName="status">
+    </div>
+    <div class="d-flex flex-column my-3 w-100">
+        <p class="color-gray">Description</p>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter description"
+        formControlName="description">
+    </div>
+    
+    
+   </form>
+
+   <div class="d-flex justify-content-center">
+    <button class="btn btn-outline-danger w-50 mx-1" (click)="onCancel()" >Cancel</button>
+    <button class="btn btn-primary w-50 mx-1" (click)="onSave()" [disabled]="formGroup.invalid">Save</button>
+    </div>
+</div>

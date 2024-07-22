@@ -1,0 +1,72 @@
+<h1 class="title">Employees</h1>
+<ng-container *ngIf="employeeList.length > 0">
+    <div>
+        <div class="d-flex flex-row">
+            <input 
+            class="search-input" 
+            type="text" 
+            placeholder="Search username.." 
+            (keyup)="onSearch($event)"/>
+
+            <p-dropdown 
+                class="m-4"
+                [options]="lovGroup" 
+                [(ngModel)]="selectedGroup" 
+                optionLabel="name" 
+                placeholder="Select a Group"
+                (onChange)="onChangeGroup($event)" />
+
+            <p-button 
+                class="my-4"
+                label="Add"  
+                severity="secondary"
+                icon="pi pi-plus" 
+                (onClick)="onAction('add', '')" />
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <tr class="text-center">
+                <th *ngFor="let column of columnHeaders">{{column}}</th>
+                <th>ACTION</th>
+            </tr>
+            <tr class="text-center"*ngFor="let employee of employeeFiltered">
+                <td>
+                    <a (click)="onAction('view', employee.id)" class="text-username color-primary">{{employee.username | titlecase}} </a>
+                </td>
+                <td>{{employee.firstName | titlecase}} </td>
+                <td>{{employee.lastName| titlecase}} </td>
+                <td>{{employee.email}} </td>
+                <td>{{employee.birthDate | date: 'dd MMM yyyy'}} </td>
+                <td class="color-primary">{{employee.basicSalary | currency: 'Rp.'}}   </td>
+                <td>{{employee.status | uppercase}} </td>
+                <td>{{employee.group | uppercase}} </td>
+                <td>{{employee.description}}  </td>
+                <td>
+                    <p-button 
+                        label="Edit" 
+                        severity="warning"
+                        icon="pi pi-user-edit" 
+                        (onClick)="onAction('edit', employee.id)" />
+    
+                    <p-button 
+                        label="Delete" 
+                        severity="danger"
+                        icon="pi pi-trash" 
+                        (onClick)="onAction('view', employee.id)"
+                     />
+                </td>
+            </tr>
+        </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="employeeList.length == 0">
+    <h5 class="color-primary">Loading...</h5>
+</ng-container>
+<div class="card flex justify-content-center">
+    <p-paginator 
+        (onPageChange)="onPageChange($event)" 
+        [first]="first" 
+        [rows]="rows" 
+        [totalRecords]="employeeList.length" 
+        [rowsPerPageOptions]="[10, 20, 30]" />
+</div>

@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+/* In styles.scss */
+@import 'primeng/resources/themes/saga-blue/theme.css'; // Choose your desired theme
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Optional - if you want to remove the margin */
+}
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.title {
+    color: rgb(0, 115, 94);
+    font-weight: 600;
+}
+
+.color-primary {
+    color: rgb(0, 115, 94);
+}
+
+.color-gray {
+    color: rgb(124, 124, 124);
+}
+
+.text-center {
+    text-align: center;
+}

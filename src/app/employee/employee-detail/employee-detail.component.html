@@ -1,0 +1,44 @@
+<h1 class="title">Employee Info</h1>
+
+<ng-container *ngIf="employeeCollection">
+    <div class="d-flex flex-column my-5">
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Username</h5>
+            <h4>{{employeeCollection.username | uppercase}}</h4>
+        </div>
+        <p-divider />
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Full Name</h5>
+            <h4>{{employeeCollection.firstName | titlecase}} {{employeeCollection.lastName | titlecase}}</h4>
+        </div>
+        <p-divider />
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Date of Birth</h5>
+            <h4>{{employeeCollection.birthDate | date: 'dd MMMM yyyy'}}</h4>
+        </div>
+        <p-divider />
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Email</h5>
+            <h4>{{employeeCollection.email}}</h4>
+        </div>
+        <p-divider />
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Group</h5>
+            <h4>{{employeeCollection.group}}</h4>
+        </div>
+        <p-divider />
+        <div class="d-flex flex-column">
+            <h5 class="color-gray">Basic Salary</h5>
+            <h4 class="color-primary">{{employeeCollection.basicSalary | currency: 'Rp.'}}</h4>
+        </div>
+        <p-divider />
+
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary w-75" (click)="onBack()">OK</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!employeeCollection">
+    <h5 class="color-primary">No Data Employee</h5>
+</ng-container>

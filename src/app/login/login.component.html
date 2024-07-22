@@ -1,0 +1,8 @@
+<div>
+    <h2 class="title">BACKOFFICE</h2>
+    <form [formGroup]="form" class="form-container">
+        <input type="text" formControlName="username" class="form-control">
+        <input type="password" formControlName="password" class="form-control">
+        <button class="btn btn-primary form-button" (click)="onSign()" [disabled]="form.invalid">Sign in</button>
+    </form>
+</div>

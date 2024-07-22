@@ -1,0 +1,16 @@
+.search-input {
+    width: 70%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 24px 0 24px 0;
+}
+
+.text-username:active {
+    font-weight: bold;
+}
+.text-username:hover {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration-line: underline;
+}
